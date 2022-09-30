@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
           if(other.gameObject.tag != "Hit")
           {
             hits++;
-            Debug.Log("You've collided!" + hits);
+            Debug.Log("You've already collided so :" + hits + "Times!");
           }
        
     }
