@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Dropper : MonoBehaviour
 {
-    MeshRenderer rederer;
-    
+    MeshRenderer rederer; // caching reference
+    Rigidbody rb; // caching reference
     [SerializeField]float timeToWait = 5f;
     // Start is called before the first frame update
     void Start()
     {
         rederer = GetComponent<MeshRenderer>();
-        
+        rb = GetComponent<Rigidbody>();
 
         rederer.enabled = false;
+        rb.useGravity = false;
 
     }
 
@@ -22,7 +23,8 @@ public class Dropper : MonoBehaviour
     {
       if(Time.time > timeToWait)
       {
-        Debug.Log("It passed 3 seconds!");
+        rederer.enabled = true;
+        rb.useGravity = true;
       }
     }
 }
